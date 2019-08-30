@@ -6,27 +6,48 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Inspire</title>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="bg-image">
-	<div id="weather">
-		Your Weather Template
-	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col text-center" id="weather">
+				Your Weather Template
+			</div>
+		</div>
+		<div class="row">
+			<div class="col text-center mt-5" id="quote">
+				The Quote
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mt-5">
+				<form style="width: 18rem;" onsubmit="app.controllers.todoController.addTodo(event)">
+					<div class="form-group">
+						<label for="description">To Do Items:</label>
+						<input type="text" class="form-control" id="description" placeholder="Add and item to do">
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+				<div class="mt-5">
+					To Do List
+					<div id="todo-error"></div>
+					<form onsubmit=""></form>
+					<div class="text-center">
+						<p>Number of To Do items:</p>
+						<p id="todo-counter">0</p>
+					</div>
+					<div id="todo-cards"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<script type="module" src="app/main.js"></script>
+
 </body>
 
 </html>
