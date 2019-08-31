@@ -60,12 +60,10 @@ export default class TodoService {
 		//TODO Make sure that you found a todo, 
 		//		and if you did find one
 		//		change its completed status to whatever it is not (ex: false => true or true => false)
-		// if (todo.completed) {
-
-		// }
 		todo.completed = !todo.completed //default "unchecked is false, this flips value to true"
 		todoApi.put(todoId, todo)
 			.then(res => {
+
 				//TODO do you care about this data? or should you go get something else?
 
 			})
@@ -87,10 +85,5 @@ export default class TodoService {
 			})
 	}
 
-	editTodo(update) {
-		todoApi.put(_state.todos, update)
-			.then(res => {
-				this.getTodos()
-			})
-	}
+
 }
