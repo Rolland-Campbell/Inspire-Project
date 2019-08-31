@@ -3,10 +3,9 @@ import ImageService from "../services/image-service.js";
 const _imageService = new ImageService()
 
 function _drawImage() {
+  debugger
   let image = _imageService.Image
-  let template = ''
-  image.forEach(i => template += i.Template)
-  document.getElementById('bg-image').innerHTML = template
+  document.getElementById('bg-image').innerHTML = image.Template
 }
 
 //TODO Create methods for constructor, and rendering the image to the page 

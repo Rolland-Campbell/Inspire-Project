@@ -24,7 +24,7 @@ function _setState(prop, data) {
 export default class ImageService {
 
 	get Image() {
-		return _state.image.map(i => new Image(i))
+		return new Image(_state.image)
 	}
 
 	addSubscriber(prop, fn) {
@@ -35,9 +35,8 @@ export default class ImageService {
 		imgApi.get()
 			.then(res => {
 				console.log(res);
-
 				//TODO Handle this response from the server
-				let imageApiData = res.data.map(i => new Image(i))
+				let imageApiData = res.data
 				_setState('image', imageApiData)
 			})
 			.catch(err => _setState('error', err.response.data))
