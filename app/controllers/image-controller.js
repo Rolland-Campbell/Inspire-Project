@@ -4,6 +4,7 @@ const _imageService = new ImageService()
 
 function _drawImage() {
   debugger
+  //let template = _imageService.Image.Template
   let template = _imageService.Image.url
   document.body.style.backgroundImage = template
   //document.getElementById('bg-image').style.backgroundImage = template
