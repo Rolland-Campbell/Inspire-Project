@@ -6,7 +6,7 @@ export default class Image {
 
   get Template() {
     return `
-    <body id="bg-image"	style="background-image: url('${this.url}')">
+    style="background-image: url('${this.url}')">
     `
   }
 

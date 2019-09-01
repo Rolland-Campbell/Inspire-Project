@@ -5,7 +5,7 @@ const _imageService = new ImageService()
 function _drawImage() {
   debugger
   let image = _imageService.Image
-  document.getElementById('bg-image').innerHTML = image.Template
+  document.getElementById('bg-image').style.backgroundImage = image.Template
 }
 
 //TODO Create methods for constructor, and rendering the image to the page 
