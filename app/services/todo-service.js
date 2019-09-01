@@ -9,11 +9,13 @@ const todoApi = axios.create({
 
 let _state = {
 	todos: [],
+	completed: [],
 	error: {},
 }
 let _subscribers = {
 	todos: [],
-	error: []
+	error: [],
+	completed: []
 }
 
 function _setState(prop, data) {
@@ -26,6 +28,10 @@ export default class TodoService {
 		return _state.error
 	}
 
+	get Completed() {
+		return _state.completed
+	}
+
 	get ToDo() {
 		return _state.todos.map(t => new ToDo(t))
 	}
@@ -35,12 +41,13 @@ export default class TodoService {
 	}
 
 	getTodos() {
-		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
 				//TODO Handle this response from the server
 				let todoApiData = res.data.data.map(t => new ToDo(t))
 				_setState('todos', todoApiData)
+				console.log(todoApiData.length);
+				document.getElementById('todo-counter').innerHTML = todoApiData.length
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -51,6 +58,7 @@ export default class TodoService {
 				//TODO Handle this response from the server (hint: what data comes back, do you want this?)
 				_state.todos.push(res.data.data)
 				_setState('todos', _state.todos)
+				this.getTodos()
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -63,6 +71,8 @@ export default class TodoService {
 		todo.completed = !todo.completed //default "unchecked is false, this flips value to true"
 		todoApi.put(todoId, todo)
 			.then(res => {
+				_setState('completed', _state.completed)
+				console.log(todoApi.data.completed);
 
 				//TODO do you care about this data? or should you go get something else?
 
@@ -79,6 +89,7 @@ export default class TodoService {
 				let index = _state.todos.findIndex(todos => todos._id == todoId)
 				_state.todos.splice(index, 1)
 				_setState('todos', _state.todos)
+				this.getTodos()
 			})
 			.catch(err => {
 				console.error(err)

@@ -15,9 +15,9 @@ export default class ToDo {
         <input class="form-check-input" type="checkbox" value="" id="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">
           <label class="form-check-label" for="checkbox">
             Completed?
-			    </label><br>
-          <button class="btn btn-danger ml-2" onclick="app.controllers.todoController.removeTodo('${this._id}')">Delete Task</button>
-		  </div>
+          </label><br>
+      <button class="btn btn-danger ml-2" onclick="app.controllers.todoController.removeTodo('${this._id}')">Delete Task</button>
+      </div>
     </div>
       `
   }

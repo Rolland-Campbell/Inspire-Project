@@ -10,6 +10,9 @@ function _drawTodos() {
 	document.getElementById('todo-cards').innerHTML = template
 }
 
+function _drawCompleted() {
+
+}
 
 //NOTE Keep an eye on your console for any of these errors
 function _drawError() {
