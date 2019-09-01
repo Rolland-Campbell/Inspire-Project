@@ -3,7 +3,6 @@ import ImageService from "../services/image-service.js";
 const _imageService = new ImageService()
 
 function _drawImage() {
-  debugger
   let image = _imageService.Image
   document.getElementById('bg-image').style.backgroundImage = image.Template
 }
