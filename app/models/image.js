@@ -4,10 +4,4 @@ export default class Image {
     this.url = data.url
   }
 
-  get Template() {
-    return `
-    style="background-image: "url('${this.url}')">"
-    `
-  }
-
 }

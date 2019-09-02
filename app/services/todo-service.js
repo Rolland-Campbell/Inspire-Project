@@ -12,6 +12,7 @@ let _state = {
 	completed: [],
 	error: {},
 }
+
 let _subscribers = {
 	todos: [],
 	error: [],
@@ -71,8 +72,10 @@ export default class TodoService {
 		todo.completed = !todo.completed //default "unchecked is false, this flips value to true"
 		todoApi.put(todoId, todo)
 			.then(res => {
-				_setState('completed', _state.completed)
-				console.log(todoApi.data.completed);
+				this.getTodos()
+				debugger
+				_setState('completed', res.data.completed)
+				console.log(res.data.completed);
 
 				//TODO do you care about this data? or should you go get something else?
 
